@@ -3,11 +3,16 @@ using System.Collections.Generic;
 
 namespace FlyingDutchmanAirlines.DatabaseLayer.Models;
 
-public partial class Customer
+public sealed class Customer
 {
     public int CustomerId { get; set; }
 
     public string Name { get; set; } = null!;
 
-    public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+    public ICollection<Booking> Bookings { get; set; } = new List<Booking>();
+
+	public Customer(string name)
+	{
+		Name = name;
+	}
 }
